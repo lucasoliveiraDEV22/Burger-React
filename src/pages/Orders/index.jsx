@@ -23,7 +23,7 @@ function Orders() {
   async function deleteCostumer(clientId){
     const newCostumers = costumers.filter((client) => client.id !== clientId);
     setCostumers(newCostumers);
-    await axios.delete(`http://localhost:3001/order ${clientId}`);
+    await axios.delete(`http://localhost:3001/order/${clientId}`);
   }
   return (
     <Container>
@@ -36,7 +36,7 @@ function Orders() {
           <Order key={client.id}>
             <p>{client.order}</p>
             <p>{client.clientName}</p>
-            <button onClick={() => deleteCostumer(index.id)}>
+            <button onClick={() => deleteCostumer(client.id)}>
               <img src={trash} alt="lata-de-lixo" />
             </button>
           </Order>
